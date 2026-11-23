@@ -1,0 +1,19 @@
+# Third-party notices — review draft
+
+The revisions below describe the official VGM base and its pinned dependencies. This inventory is not a license grant or a complete binary-distribution notice set. Retain original copyright, SPDX and license notices in sources and submodules. Include the applicable full license texts and attribution notices with any binary release, not merely links from this file.
+
+| Component / path | Evidence and terms |
+|---|---|
+| VGM base (`app/`, `config/`, `assets/`, build files) | [Official repository](https://github.com/flipperdevices/video-game-module); [base `f18ad44` / `0.1.0`](https://github.com/flipperdevices/video-game-module/tree/f18ad4481ef04449aaae55a4d5556923effef276). No repository-wide LICENSE/COPYING identified at the base or on `dev`; the repository API reports `license: null`. Confirm the grant for modified code, assets and binary redistribution. |
+| `assets/flipperzero-protobuf` | [Pinned schema tree](https://github.com/flipperdevices/flipperzero-protobuf/tree/1956b83bba99313ee8d8386e5d35d0549341ca26); no repository-wide license identified at this revision. Clarify whether the grant covers the schemas and their generated sources (otherwise obtain separate terms). |
+| `lib/pico_sdk` | [BSD-3-Clause root text](https://github.com/raspberrypi/pico-sdk/blob/6a7db34ff63345a7badec79ebea3aaef1712f374/LICENSE.TXT). Preserve file-specific notices, including those under SDK subdirectories. |
+| `lib/pico_dvi` | [BSD-3-Clause / Luke Wren](https://github.com/Wren6991/PicoDVI/blob/a248d72b8cc95a08b43ef4307cd954eb801272b2/LICENSE). |
+| `lib/freertos_kernel` | [MIT](https://github.com/FreeRTOS/FreeRTOS-Kernel/blob/9c649ea7d1dd0206092697d73c894fd2c4fe29b3/LICENSE.md); preserve copyright headers. Optional nested ports may have their own licenses. |
+| `lib/nanopb` | [Zlib-style license](https://github.com/nanopb/nanopb/blob/7421969cde854dd1b6b2df28a8c6474347bb87ca/LICENSE.txt). |
+| Pico SDK → `lib/tinyusb` | [MIT root text](https://github.com/hathach/tinyusb/blob/86c416d4c0fb38432460b3e11b08b9de76941bf5/LICENSE). Check nested components individually; do not infer all TinyUSB subtrees are MIT. |
+| `app/expansion_protocol.h` | An explicit, separate [Unlicense notice in upstream source](https://github.com/flipperdevices/video-game-module/blob/f18ad4481ef04449aaae55a4d5556923effef276/app/expansion_protocol.h) is retained in the reconstruction. |
+| `config/FreeRTOSConfig.h`; selected Hybridus source files | Configuration header carries its own MIT notice; selected Hybridus files have SPDX MIT markers. Keep them; do not assign that license to unmarked upstream files. |
+| Other SDK notices | For example the Pico SDK printf implementation's [MIT notice](https://github.com/raspberrypi/pico-sdk/blob/6a7db34ff63345a7badec79ebea3aaef1712f374/src/rp2_common/pico_stdio/LICENSE) and the [Apache-2.0 CMSIS stub notice](https://github.com/raspberrypi/pico-sdk/blob/6a7db34ff63345a7badec79ebea3aaef1712f374/src/rp2_common/cmsis/stub/CMSIS/LICENSE.txt) are present in source; presence is not proof that every such component is linked into the UF2. |
+| Flipper Zero firmware and Desktop Settings context | [Official Flipper Zero firmware: GPLv3](https://github.com/flipperdevices/flipperzero-firmware/blob/dev/LICENSE). Separate from the RP2040 firmware. Match any distributed Desktop Settings FAP to its exact Hybridus source, toolchain, and host API. |
+
+Before release: confirm the upstream grants, resolve third-party art/assets and nested dependencies by actual source/assets and link map, preserve change and copyright notices, and supply all required full license/attribution notices. If GPLv3 applies, follow [its Corresponding Source terms (§§1, 6)](https://www.gnu.org/licenses/gpl-3.0.en.html), including the scripts and source needed to build and install the covered binaries. Do not assume GitHub's automatic archives contain the files behind Git submodule entries.
